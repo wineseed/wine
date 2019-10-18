@@ -1,5 +1,7 @@
 import discord
 import random
+import time
+import asyncio
 
 d = discord.Client()
 
@@ -10,6 +12,17 @@ d = discord.Client()
 async def on_ready():
 
     print("로그인 중........")
+@d.event
+async def on_ready():
+    global timer
+    print(client.user.name)
+    while True:
+        await d.change_presence(status=discord.Status.online, activity=discord.Game(name="나! 불붙었어!".format(len(client.guilds), len(client.users))))
+        await asyncio.sleep(10)
+        await d.change_presence(status=discord.Status.idle, activity=discord.Game(name="저....잡니다......."))
+        await asyncio.sleep(10)
+        await d.change_presence(status=discord.Status.dnd, activity=discord.Game(name="똥싸는중인데! 방해하지마세요!"))
+        await asyncio.sleep(10)
 
 
 
