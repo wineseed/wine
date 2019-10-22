@@ -15,9 +15,9 @@ async def on_ready():
 @d.event
 async def on_ready():
     global timer
-    print(client.user.name)
+    print(d.user.name)
     while True:
-        await d.change_presence(status=discord.Status.online, activity=discord.Game(name="나! 불붙었어!".format(len(client.guilds), len(client.users))))
+        await d.change_presence(status=discord.Status.online, activity=discord.Game(name="나! 불붙었어!".format(len(d.guilds), len(d.users))))
         await asyncio.sleep(10)
         await d.change_presence(status=discord.Status.idle, activity=discord.Game(name="저....잡니다......."))
         await asyncio.sleep(10)
